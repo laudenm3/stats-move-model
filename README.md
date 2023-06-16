@@ -10,7 +10,7 @@ You can find discussions of sentence classification here:
 * [https://medium.com/analytics-vidhya/few-shot-learning-using-sbert-95f8b08248bf](https://medium.com/analytics-vidhya/few-shot-learning-using-sbert-95f8b08248bf)
 * [https://joeddav.github.io/blog/2020/05/29/ZSL.html](https://joeddav.github.io/blog/2020/05/29/ZSL.html)
 
-For cross-encoder training, one commenter use this to adjust from training pairs of sentences to a single sentence with a label:
+For cross-encoder training, one commenter used this to adjust from training pairs of sentences to a single sentence with a label:
 
 ```
 train_samples = []
