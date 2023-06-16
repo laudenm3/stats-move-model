@@ -1,0 +1,267 @@
+tag1,tag2,sentence
+P,RQJust,Understanding what this data says about ourselves can help us identify ways to improve our own habits and elevate the quality of transaction management.
+P,RQDef,"In this report, we will explore customer profiling, with the objective of providing better financial outcomes for customers through personalized rewards."
+P,RQJust,"Our objective is to identify opportunities for your bank to go beyond the industry standard uses of financial data, such as credit approval and fraud detection, to focus on the ways that Capital One can leverage their insights to create financial wellness for their customers."
+P,RQDef,We will also detail how these better outcomes for users improve the bottom line of the business.
+P,RQDef,"Finally, we will provide a recommendation for testing two experimental features that make use of these insights, and discuss how these tests might be implemented."
+S,,"From spending patterns and transaction data, we identified factors that correlate with financial stability and trends."
+S,,"These factors can help us identify and predict profit, interest, and transaction fees for banking services."
+P,RQJust,Determining how to convert this data into both usable and valuable categories for data models is essential to profiling customers and predicting trends.
+S,MethDef,Figures 1.1 and 1.2 represent two different ways to explore client demographic data.
+S,MethJust,This will allow us to identify features of account holder personas and begin organizing users into clusters.
+S,MethDef,"In figure 1.1, we graph the distribution of monthly loan spending by number of clients."
+S,MethDef,"In figure 1.2, we chart the distribution of account holder ages."
+S,MethJust,Loan payments and age are two variables that form a strong baseline to create features that determine how to profile Capital One account holders.
+S,Int,Figure 1.1 provides a lot of insight on a customer's loan payments. 
+S,Int,This chart's rightward skew reveals a significant variation in client payments.
+P,RQDef,We are interested in how this correlates with loan payment history and reveals whether clients repay their loans on-time or behind schedule.
+P,RQJust,"This insight can help your bank provide customers with a more personalized experience that can help keep them financially stable, in turn increasing customer satisfaction."
+S,Int,Figure 1.2 also sets a strong foundation to explore how age impacts an account holder's financial stability and needs.
+S,Int,This chart demonstrates how our dataset includes a pretty balanced variety of ages.
+R,Int,The distribution's smaller count of clients below 20 highlights how young individuals are typically less concerned and involved with their finances.
+R,Int,"On the other side, the drop in count of clients between ages 60 and 90 highlights how older users shift their spending habits as they are more likely to have retired."
+P,RQJust,"Overall, knowing the age of an account holder may help Capital One identify their clients' unique economic priorities."
+M,MethDef,"In our next step, we wanted to use user past credit data to model the risk of future loan defaults."
+M,MethJust,"Because defaulting is a binary dependent variable, we opted for logistic regression to model missed loan repayments."
+S,MethDef,"To identify the variables that are most closely correlated with loan defaults, we constructed a heat map."
+M,MethJust,Heat maps are an effective tool to find positive and negative correlations among variables.
+M,MethDef,"With regard to bad_loan, a binary variable indicating whether or not not a user defaulted (1 if yes, 0 if no), we identified short_emp (binary variable, 1 when employed for 1 year or less), dti (debt-to-income ratio), last_deliq_none (binary variable, 1 when a user had at least one circumstance of delinquency), revol_util (the amount of credit a borrower is using compared to all other available credit), and total_rec_late_fee (late fees received to date) to have the greatest effect."
+M,MethDef,"Based on the features identified in Figure 2.1, a logistic model was trained to predict which loans would be defaulted on based on each user's financial data."
+M,MethDef,"A test set was held in reserve, and was compared against the predictions of the model."
+S,,"The logistic model tends to overestimate the number of properly repaid loans, which suggests that other variables need to be incorporated for a better model."
+P,,"With respect to Capital One, customers will benefit by being able to better understand their spending habits, which will, in turn, improve satisfaction and help the businesses."
+S,,These visualizations plot a series of positive and negative account balances of varying balances and debt respectively.
+S,,This allows us to identify which account id's correspond to high value accounts or concerning accounts in debt.
+I,,An account with a higher balance suggests that the account owner can be more affluent and would benefit from rewards programs more than other clients.
+P,,"Therefore, this data can help us identify which clients to target when creating and marketing rewards programs."
+P,,Combining this data provides Capital One with insights to create a more personalized experience for their users that increases their likelihood to engage with rewards and offers.
+I,,"This data-driven business strategy will encourage these high value accounts to spend more using Capital One, thereby increasing both income and customer satisfaction."
+P,,"With debt closely tied to financial instability and an inability to make interest repayments, this data allows us to identify customers who may be at financial risk."
+R,,Accounts exceeding a certain amount of debt should be high-priority targets for interventions and/or other programs.
+M,MethDef,We can join this data with loan payment history using account ids associated with these concerning accounts to identify which of these accounts are at risk of remaining in debt and which are proactively working on moving towards a higher balance with regular payments.
+M,,"Similarly, we can join this data with other insights to learn more about how to best help these struggling clients."
+I,,It is safe to assume that clients with the most concerning account balances have a higher need for education on budgeting and financial literacy overall.
+I,,"By providing these resources and intervening with these clients, Capital One can encourage them to pay regularly and increase their financial stability."
+I,,"As their clients see positive results from this initiative, they will have a better customer experience with Capital One."
+I,,"On the other hand, Capital One will see increased profits as these clients move away from debt."
+M,MethDef,We used a Holt-Winters' seasonal forecasting model to forecast the spending trends of a Capital One customer.
+M,MethDef,We chose this exponential smoothing method to fit common seasonal trends of user spending.
+S,,"Figure 4 helps us identify trends in each user's spending, which in turn allows Capital One to personalize their initiatives and offers."
+M,MethDef,"To use this model, we focused on one user's account transaction data."
+M,MethDef,"First, we cleaned the transaction data by filtering out withdrawals from the account made to pay off the monthly credit balances."
+M,MethDef,"After removing these outlying data points, we then flattened the transaction curve."
+M,MethDef,"Using transaction data from April 2020 to January 2022, we forecasted the number of transactions a user makes per week as well as transaction amount per day."
+S,,"In Figures 4.1 and 4.2 below, the orange line represents the model's forecast from January 2022 to July 2022."
+M,MethDef,"To test the accuracy of our forecast, we plotted our real transaction data from January 2022 to July 2022."
+S,,"Here, we can see the comparisons of our forecast in orange with the real transaction data in blue."
+R,,These predictions allow Capital One to access each user's spending habits by forecasting future user behavior.
+R,,Predicting when users are more likely to spend will help Capital One plan when to offer rewards according to each user's spending trends
+R,,"Using these data insights, Capital One can take initiatives such as sending an alert to the user if their projected spending would result in an overdraft, or spending above what they would be able to pay off."
+R,,Another initiative Capital One could take is to offer rewards for users with lower spending and higher balances to incentivize spending.
+R,,"By leveraging an ongoing understanding of the spending patterns of users, Capital One can create better economic outcomes for their users, and help protect themselves against overdraft or default risk."
+R,,"We recommend that Capital One generates simple spending predictions, either via forecasting or aggregation, for users to power alert systems."
+M,,"Given the objective of identifying opportunities to improve the financial outcomes of users, we selected an account that experienced such an intervention, in the form of refinancing a homeowners loan."
+M,MethDef,"From this user's credit card spending, we are looking for indicators of financial insecurity and the impact of the refinance."
+S,,Figure 5 compares the daily account balance for a credit card account of a single user over the one year period before refinancing a homeowners loan and the one year period after.
+S,,"In the year before refinancing, this user would spend months unable to repay their credit card debt between deposits, resulting in high card utilization and interest payments   all negatively impacting their credit score."
+S,,"This can be seen in the data at the high peaks, as well as long periods between negative slopes or returns to a $0 balance."
+R,,"This result could suggest that banking interventions, such as offering to refinance a loan for accounts with reliable earnings and equity but low cash reserves, have a strong opportunity to positively impact the future financial outcomes of users;"
+P,RQDef,"Nevertheless, our overall goal moving forward will be to identify similar emergent opportunities, and recommend this or other interventions."
+M,,"Given the logistic model developed to identify users at risk of default, we wanted to test how a few different intervention methods might change the outcomes for Capital One users."
+M,,"To test this, we defined two different programs Capital One might employ in an effort to reduce the number of defaults: The Make-A-Payment Program, where users were reminded via banking app notification to make a minimum payment on their credit card, and the Debt Forgiveness Program, where a percentage of credit card debt was forgiven and credited to the user's account."
+M,,"To simulate these programs, the test data for the logistic regression model for user defaults was used as a baseline, and the test data was treated on a range of treatment effects for each program."
+M,,"In the Make-A-Payment program, the treatment effect represents what percent of users respond to the notification and make an extra payment."
+M,,"For the Debt Forgiveness program, the treatment effect represents the amount the Balance for the most recent month was reduced."
+M,,"The new features were then used to generate new default rates, and compared across increasing treatment effectiveness rates."
+R,,This experiment determined that the Make-A-Payment program was more effective than debt forgiveness as a strategy to reduce defaults.
+S,,"Interestingly, there is a large spike in effectiveness in the payment program between 6% and 8%, while the debt forgiveness program remains relatively linear in its effect."
+R,,The fact that a program encouraging payments is more effective than reducing debt in lowering the average default rate is a promising one for Capital One.
+I,,"A 10% debt reduction strategy corresponds to a massive expense for the issuing bank, while encouraging payments via app notification, one-tap integration for quick minimum balance payments, or other methods of increasing the rate of repayment in users are comparatively inexpensive."
+P,RQDef,It was our goal with this project to identify a few different vectors for how Capital One might improve the financial wellbeing of their customers and reduce the capital risks of their business.
+R,,"While the Make-A-Payment program seems promising in simulation, the best way for Capital One to identify the scope and value proposition of this opportunity is through A/B testing of real users within their ecosystem, rather than relying on simulation data or modeling."
+R,,Two experimental programs that A/B testing would work well on are predictive overdraft notifications and the Make-A-Payment program.
+R,,"In both cases, we recommended that Capital One develop the appropriate feature for their banking app, then roll out a pilot program to a subset of their users, then record the financial outcomes of the pilot group and a control group."
+P,RQDef,"With our analysis, we can discover trends and correlations pertaining to why some countries have a higher overall ""happiness score"" than others."
+P,RQDef,"We can also look into what contributes to a higher happiness score, and determine how we as a country can incorporate some of these elements into our society with hopes to improve the happiness among our own citizens."
+P,,Our analysis and report is designed for therapists or researchers that are concerned about the mental health of others.
+P,,Through analyzing this data we hope to be able to better predict and understand what factors lead to greater happiness and all around better mental health.
+P,RQDef,"In this report, we will first assess the fields included in the dataset to determine which are the most impactful on the overall happiness score."
+P,RQDef,"Then, we will analyze potential geographical trends in average happiness scores."
+P,RQDef,"Finally, we will assess whether or not the overall ""development"" of a country has an effect on its happiness score."
+P,RQJust,This analysis will give us ideas on what contributes to a country's happiness level and how it can be improved.
+P,RQJust,"Mental health professionals will be able to use our findings to help pinpoint issues their patients are having, as well as help them recognize what factors are likely to be causing their issues."
+P,RQDef,We will be able to find the correlation of different societal and environmental factors on overall happiness through this data set.
+P,RQJust,This will lead to better informed mental health professionals and therefore will create happier and healthier patients.
+P,RQJust,Both mental health professionals and patients will benefit greatly from the improved quality of treatment as a result of analyzing this data set.
+P,RQDef,Our purpose is to find the correlation between certain aspects of the dataset and see if they can predict the World Happiness Score of a country.
+P,RQJust,"This way, we can help mental health professionals and politicians in various countries analyze how to improve happiness in their citizens."
+P,RQDef,"To do this, we have developed research questions to direct our focus to relevant aspects of the dataset."
+P,RQDef,Our research questions are as follows: Our purpose is to find the correlation between certain aspects of the dataset and see if they can predict the World Happiness Score of a country.
+P,RQJust,"This way, we can help mental health professionals and politicians in various countries analyze how to improve happiness in their citizens."
+P,RQDef,"To do this, we have developed research questions to direct our focus to relevant aspects of the dataset."
+P,RQDef,Our research questions are as follows: Which factors of life have the largest impact on happiness levels?
+P,RQDef,Which countries have a higher happiness rate per 100K of population reported per year in 2019?
+P,RQDef,What effect does being a developed or underdeveloped country have on its happiness score?
+P,RQDef,One question we wanted to investigate was which factors have the most impact on happiness levels.
+P,RQDef,"In other words, does the country with the highest score for each factor have a higher happiness level?"
+P,RQDef,"And if so, by how much?"
+P,RQJust,The answer to this question could give insight into where countries should spend their money in order to increase happiness levels of their population.
+M,,We approached answering this question by developing linear regression models for each independent variable in the dataset to assess the strength of their individual effects on the overall happiness score.
+S,MethDef,"First, to gain a visual understanding of these relationships, we formed a PairPlot, which presents plots for each combination of variables in the dataset."
+S,MethDef,"Once formed, we focused on the second row of the PairPlot which compared the happiness score to each of the other variables in the dataset."
+I,,"We also did not analyze the first two plots in that row because we knew there would be a direct relationship between score and ranking, and the second plot simply plots the happiness score against itself."
+S,,"From the other plots in this row, we looked for a large change in a constant direction of the LOWESS line."
+S,,"The more the LOWESS line appears this way, the greater effect the independent variable in question has on the overall happiness score."
+S,,"The second row in our PairPlot shows the GDP per Capita, Social Support, and Healthy Life Expectancy variables as ones that have the largest effect on happiness score;"
+I,,"however, we predicted that GDP per Capita was the most effective since its LOWESS line changed more linearly than the other two variables."
+I,,We also wanted to test our prediction to see if the GDP per Capita variable is actually the most impactful.
+M,MethDef,"To do this, we developed three linear regression OLS models to analyze Happiness Scores against GDP per Capita, Social Support, and Healthy Life Expectancy, respectively."
+S,MethDef,"We only included these three variables in the figure above because they had the largest P-values of all variables in the dataset, meaning that they are the most statistically significant."
+S,,This confirms our hypothesis made by observing the PairPlots.
+R,,"From the summaries of these models, we can conclude that GDP per Capita does, in fact, have the highest individual impact on overall happiness scores due to it having the largest Adjusted R-Squared value of the three variables."
+S,,"However, we must also notice that no variable has an Adjusted R-Squared value much larger than 0.7, meaning that no one variable is able to completely control the final score value."
+R,,"Thus, we can also conclude that a certain combination of these variables is what impacts the total happiness score."
+P,,Another question we decided to investigate was which countries have a higher happiness rate per 100K of population reported per year in 2019?
+P,,This question could tell countries if what they are currently providing to their citizens is enough for them to make the top 25 happiest countries.
+P,,"And if so, where do they compare to the other happiest countries?"
+S,,"One good visualization for this question is a bar graph, as it will show all of the countries as well as who has the highest happiness ranks and their score relative to the other countries."
+S,,"For readability purposes, we only included the top 25 countries in terms of happiness score."
+R,,"This visualization shows that Finland, Denmark, Norway, and Iceland have the highest happiness scores."
+R,,"Meaning, overall, their citizens are the happiest compared to the entire world."
+R,,All of these countries are of the Nordic region.
+I,,This probably means these countries hold common interests and have cultural and historic similarities.
+S,,"After the particular Nordic countries, the next happiest countries are the Netherlands and Switzerland, which are both European countries."
+S,,"After those is Sweden, another Nordic country."
+S,,"Then, there is New Zealand and Canada, which are on opposite sides of the world. "
+S,,The other top 25 countries are sporadically placed all around the globe.
+R,,"But, one characteristic they all share is being considered a developed country."
+I,,This may be a direct result of the columns chosen for this data set.
+I,,"All developed countries will have high GDPs, Social support, Life expectancy, Freedom, and Trust of Government."
+P,,"To further this analysis, another question we could ask would be which regions or continents of the world have the highest happiness score."
+I,,"To start answering this question, it helps to view the relation between scores and geography on a heat map."
+I,,We first created a heat map filtered by country to see if we could notice any geographic trends on our own.
+S,,"From this heat map, we can infer at first glance that North America would have the highest average happiness score based on the consistent high-scoring countries in that area."
+S,,"However, to know this for sure, we created another heat map, this time combining countries into their respective continents and calculating the average happiness score in each grouping."
+S,,"From this new heat map, we can see that the continent of Australia actually has the highest average happiness score."
+I,,"However, this is largely in part by the fact that only two of Australia's countries (Australia and New Zealand) were included in this dataset, and they both had very high individual scores."
+I,,The small amount of data for this continent (as well as the continent's small size) may lead to difficulty in accurately comparing its average happiness score to that of other countries.
+S,,"So, besides Australia, North America and Europe had the highest average happiness scores."
+S,,We can see that Europe's average score was greatly increased due to the number of countries that it had ranked in the top ten around the world.
+P,,Another question we wanted to answer was the effect of a country being considered a developed or underdeveloped country on their happiness score.
+M,,"We categorized developed countries as those with GDP per capita above 1, and underdeveloped as less than or equal to 1."
+I,,This is because GDP is a main factor in determining if a country is developed or developing.
+P,,The answer to this question could provide more information on whether developed or developing countries are happier.
+P,,"And, if they are, is it only because of the money factor?"
+S,,"The ROC curve from our Logistic regression model shows clear predictive power, as it has a large area under the curve."
+S,,To create this curve we used a classification cutoff of 0.5.
+S,,"It has near perfect results for all points beyond the 0.2 false positive rate, as well as for all points below the 0.4 true positive rate."
+R,,This shows that there is a clear relation between the development of a country and that country's happiness score.
+M,,To further future models this could be added as a cofactor or GDP can be weighted more heavily to get stronger and more accurate models.
+R,,We have been able to conclude from our first research question and the visualizations from it that gross domestic product has the largest impact on happiness levels throughout the world.
+R,,"Taking into account that other factors still play a role in happiness levels, we can conclude that positive changes in a country's economy can increase the happiness levels within their populations."
+R,,"From the visualizations for our second research question we have been able to conclude that Finland, Denmark, Norway, and Iceland have the highest happiness scores out of the countries in our data set."
+R,,"These countries have high GDPs, Social support, Life expectancy, Freedom, and Trust of Government, making them developed countries."
+R,,We can see here again that a high GDP does play a large role in happiness levels within a country.
+P,,This information is valuable because other countries can use this information to make changes related to these factors within their own country in order to raise their happiness levels.
+R,,"Lastly, from the visualizations from our third research question we can see within a country there are different levels of happiness."
+R,,"The main factors that contribute to this are the score and GDP per capita, which shows that these factors vary among a population in a country."
+R,,From all three research questions we see that GDP per capita plays a large role in happiness levels among people
+P,,"Is there a linear relationship between daily Uber demand and features including number of covid cases, precipitation amount, day of week (i.e. weekend or weekday), or whether the day is a holiday or not?"
+P,,Is there a relatively inexpensive and easy way to forecast the travel time between two specific Uber zones?
+P,,"Based on the current market share, which regions of New York City should Uber spend the most marketing effort on?"
+P,,"Knowing the patterns of Taxis, Ubers, Lyfts, etc. can lead to increased understanding of the market, and therefore financial gain."
+P,,Our overall goal is to leverage our analysis of the data to provide as much value to our client as possible.
+P,,"We will focus on developing observations and predictions that are useful for the company, suggesting new policies that could bring more profit."
+P,,"In this section we will use linear regression to attempt to determine if there is a linear relationship between daily uber demand and covariates such as number of covid cases, amount of precipitation on that day, day of week, and whether the day in question is a holiday or not."
+S,,"We investigated this by creating two line graphs, one graphing Uber trips in the first seven months of 2021 and the other graphing Uber trips throughout 2020."
+S,,"We were only able to graph the first seven months of 2021 due to data limitations, which is why we included the entirety of 2020 for reference."
+S,,"From the visualization for 2021, one can quickly see the trend of demand distribution of the Uber Trips for the first seven months."
+S,,The demand for Uber in February dropped by 4.75% compared to the demand in January.
+S,,"The demand in March surged by 22.70%, which is around a 2 million increase."
+S,,The overall demand experienced a slight increase in April (0.63%) and May( 5.57%) and a constant decline in June and July by around 0.4%.
+I,,One key factor of the Uber demand is the influence of COVID-19.
+S,,"By analyzing the two data visualizations together, we could see the demand distribution does not follow a specific trend over the years."
+I,,We believe that the demand distribution is under the influence of COVID-19 cases in New York City after researching the real-time COVID-19 cases using the data provided by the New York Times.
+S,,This fits ideally with our two data visualizations' decrease in Uber demand.
+R,,All the changes and fluctuations in the city's COVID-19 cases we found in the data corresponds perfectly to our visualizations and findings.
+M,,This preliminary investigation leads us into our linear regression analysis.
+M,,In order to perform this analysis we first cleaned the New York City taxi dataset to get the daily demand of uber trips for the year of 2021.
+M,,"We merged the data with the daily increase in covid cases dataset, as well as the precipitation dataset."
+M,,"We then added in a US holiday feature, assigning it a binary value of 1 being a holiday and 0 not."
+M,,"Finally, we converted dates into weekdays, and is_weekend as a binary feature value (1 being weekend and 0 not)."
+S,,"As in figure 2 we wanted to find a relationship between the number of uber trips, and the covid cases, precipitation, weekend(binary), and holiday(binary) features."
+S,,The result showed a relatively weak linear relationship between the number of trips and covariates due to the low R-squared value.
+S,,"All p-values were less than 0.05, meaning that they were all statistically significant."
+S,,"Furthermore, each covariate had an extremely large coefficient."
+R,,This means that each feature is predicted to have a large impact on the number of uber trips.
+S,,We do acknowledge that the r-squared value is relatively low.
+M,,"We are positive that in future iterations this linear relationship could be improved with more covariates such as income level of the pickup zone, population density of the zone, and time of day."
+R,,"This analysis shows there is a relatively easy way for Uber to predict the number of trips, based on a few simple covariates."
+R,,"Given these findings, we recommend Uber to use similar covariates to predict the demand for rides, and adjust the number of drivers available accordingly."
+R,,"For instance, Uber could incentivise drivers by increasing their profit on a high-demand day, so that more ride requests could be satisfied."
+I,,"Of course, such adjustments in policies should only be deployed after sufficient evidence in A/B testings."
+P,,"Therefore, the second question we will try to answer is: is there a relatively easy and inexpensive way to forecast the traffic time between two specific zones?"
+M,,"Since we are trying to both fit a model and forecast the average travel time, which normally would have a seasonal pattern, and since we have historical time-series data available for all Uber trips, Holt Winters Exponential Smoothing is probably the most suitable low-cost method."
+M,,"In order to make the model more accurate, we need to simplify the task."
+M,,"Therefore, we will treat each A-to-B trip as a separate problem."
+M,,"Namely, we will fit an Exponential Smoothing model for each unique trip (reminder: the NYC map is discretized into R number of zones, so there is a reasonable amount of such unique trips)."
+M,,"To further ensure the model's precision, we will have a datapoint for each hour of the day, so that the model can provide granular enough information."
+M,,The data to model is simply the average travel time aggregated over a one-hour interval.
+M,,"Traffic's seasonal pattern most-likely repeats every week, making the length of a cycle 7 x 24 = 168 data points."
+M,,"Therefore, the dropoff zone will be the Financial District, and the pickup zones to model separately are East Village (a popular place to live in for people who work in the Financial District) and Time Square (another heart for the finance industry)."
+M,,"We will use the most recent data available, which is from February 2022 for both training and testing."
+S,,"By examining the graph, we can see that a simple Exponential Smoothing model is able to fit the average travel time quite well for both trips."
+S,,"Though the model misses the spike in some places for forecasting, the performance is already way beyond our expectation for such a simple model, since our goal is to find a low-cost estimator, and such precision should be very enough for certain modeling or simulation work."
+S,,"Besides, we could have used a larger amount of data for training, which could increase the accuracy as well (we only used 20 days worth of data for training due to limited computing power)."
+P,,the ability to provide this much accuracy with such limited time and effort is economically valuable for Uber as a company.
+R,,"In conclusion for this method, we were able to find a cheap and easy way to forecast trip durations for rides going from both the East Village and Times Square to the Financial District."
+R,,We recommend Uber adopt this method for any modeling and simulation task that does not require excessive precision in the traffic component.
+R,,"Besides, based on the results of forecasted trip duration, for any specific time, we recommend Uber to deploy more drivers in areas where the traffic is bad, since more drivers are needed to satisfy the demands that take an excessive amount of time."
+I,,"Again, such adjustments in policies should only be deployed after sufficient evidence in A/B testing."
+I,,"Since some regions might be too trivial to consider, we will only look at those that have more than 50,000 trips in that month, which we consider as ""important regions""."
+S,,Figure 4 demonstrates Uber's market share in percentage for all the important regions.
+S,,"Each blue dot represents a region's market share (the y-axis represents market share in percentage, and the x-axis represents the region ID), while the red line indicates the average market share of Uber over all important regions, which is 0.62."
+,,"We immediately notice the underperforming blue dot at the bottom, with a staggering market share lower than 0.3."
+S,,"Zooming in the detail of that region, we have the pie chart in Figure 5."
+,,"Upon inspection of the underperforming blue dot, we find out that it represents the Central Park region."
+S,,"According to Figure 5, Uber's market share shrinks mostly due to yellow taxis."
+R,,"Therefore, we conclude that Uber should undertake A/B testing that experiments with various marketing strategies targeted to customers requesting a ride from Central Park."
+R,,Some measures may include developing a customer image of those that prefer yellow taxis at Central Park.
+R,,"Furthermore, we believe that any region with a market share lower than 40% has the potential to bring Uber more customers."
+S,,"There are 10 such regions: Central Park, Lenox Hill East, Lenox Hill West, Lincoln Square East, Penn Station/Madison Sq West, Upper East Side North, Upper East Side South, Upper West Side North, Upper West Side South, and Yorkville West."
+R,,Uber should undertake similar marketing strategies in these areas in order to increase the overall profit in New York City.
+M,,This brings us to our logistic regression analysis.
+M,,Here we will focus on Uber's market share against yellow taxis by aggregating the trip data between the two.
+M,,"We reason about the likelihood that a certain passenger will choose an Uber over a yellow taxi given information about their trip, as well as some estimates about the price of the trip for each company."
+P,,"More formally, using the following covariates, we want to predict whether a passenger will take an Uber or a yellow taxi: distance between pickup point and destination, price difference between an Uber and yellow taxi ride for the trip (estimated as seen in Appendix item [A.0]), the pickup location of the trip, the hour of the day that the trip is requested, and the day of week that the trip is requested."
+M,,"We labeled an example as belonging to class 1 if an Uber was taken, and class 0 if a yellow taxi was taken."
+M,,"After preparing the data, we split it into a training and a testing set, using a 70:30 ratio."
+S,,"Fitting a logistic regression model on the training set, we obtain the following ROC curve."
+S,,The ROC curve shows that our model was fairly successful in the binary classification of Uber vs. Taxi preference.
+S,,"Furthermore, in our model we found the covariate corresponding to the pickup location ID of the JFK airport to be statistically significant with a p-value of 0 and a coefficient of -2.1."
+R,,This means that customers coming from JFK airport are more likely to prefer a taxi over an Uber.
+S,,"We observed similar patterns in Central Park and Penn Station, which had statistically significant p-values and coefficients of -2.5 and -2.8 respectively."
+R,,"We also found that trip hours 1-3 and 19-23 had positive coefficients and statistically significant p-values, suggesting that customers are more likely to take Ubers late at night and early in the morning."
+S,,"On the other hand, trip hours 9-17 were statistically significant, but with fairly negative coefficients."
+R,,This suggests that individuals are more likely to take taxis than Ubers during traditional work hours.
+R,,This logistic regression analysis helps show where Uber needs to work to improve their market share.
+R,,"This method, along with our preliminary visualizations, reveal that the Central Park Region, JFK airport, and Penn Station, and trips during work hours in general are underperforming."
+R,,"If Uber wants to continue to grow its dominance in the transportation mobility industry, it needs to show improvement in these areas of the New York City metropolitan area."
+P,,"In terms of our first questions (Is there a linear relationship between daily Uber demand and features including number of covid cases, precipitation amount, day of week, or whether the day is a holiday or not?)"
+S,,"we found that there was a relatively weak linear relationship, since the covariates contributed to a R-squared value of 0.464."
+R,,"This means that the number of covid cases, amount of precipitation, day of week, or whether the day of the week is a holiday explains about half of the variation in number of Uber trips ordered."
+I,,"Moving forward we would work to improve the R-squared value by incorporating the U.S. Census Dataset, including more covariates such as the mean income of the region where the pickup occurred."
+I,,"We will also consider using a more sophisticated model, since the relationship might not simply be linear."
+P,,"The second question, is there a relatively inexpensive and easy way to forecast the traffic time between two specific Uber zones, was answered using Holt-Winter Forecasting."
+I,,One could continue this analysis to forecast the traffic for any type of trip in New York City.
+I,,"This will be immensely helpful in determining how Uber drivers should be dispersed throughout the City, especially when coupled with the findings from the linear regression analysis as discussed earlier."
+P,,"The third and final question is, based on the current market share, which regions of New York City should Uber spend the most marketing effort on?"
+S,,"First, we have identified Central Park as a region where Yellow Taxis are receiving far more trips than Uber."
+S,,"We also found that Uber is underperforming in trips leaving from the JFK airport and Penn Station, and trips during traditional work hours."
+R,,"First, we recommend Uber to use similar models to forecast demand and traffic."
+R,,"According to the predicted values, Uber could dynamically adjust the deployment of drivers."
+R,,"More specifically, after sufficient A/B testing, Uber should incentivize drivers to take more trips when the demand is high, or to take rides in areas where the traffic is bad."
+R,,"With respect to our third research question, our recommendation involves identifying a policy that could improve Uber's market share in Central Park, JFK airport, and Penn Station, and rides during work hours in general."
+R,,"Due to our limited capacity, instead of recommending a specific marketing strategy, we once again recommend Uber to implement A/B testing focusing on such trips to experiment with different measures."
+I,,"Ideally, we can eliminate the discount over time, as customers have developed the habit of taking Ubers in these areas and could continue to do so without any discount."
+R,,Another possible measure that is worth testing is to increase the number of available Uber drivers in these three regions or during work hours.
